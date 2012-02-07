@@ -1,8 +1,8 @@
 When /^I visit page with login form$/ do
-  visit('/users/new')
+  visit('/sign_in')
 end
 
 Then /^I should see a login page$/ do
-  page.has_header?
+  page.should have_css('#new_user')
 end
 
