@@ -34,12 +34,22 @@
             <span class="i-bar"></span>
             <span class="i-bar"></span>
           </a>
-          <a class="brand" href="#">Budger</a>
+          <a class="brand" href="<%= root_path %>">Budger</a>
           <div class="container nav-collapse">
-            <ul class="nav">
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
+            <% if user_signed_in? %>
+                <ul class="nav">
+                  <li><%= link_to "Link1", "/path1"  %></li>
+                  <li><%= link_to "Link2", "/path2"  %></li>
+                  <li><%= link_to "Link3", "/path3"  %></li>
+                </ul>
+            <% end %>
+
+            <ul class="nav pull-right">
+              <% if user_signed_in? %>
+                <%= render :partial => 'application/nav_user' %>
+              <% else %>
+                <%= render :partial => 'application/nav_anonymous' %>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -58,25 +68,30 @@
               </div>
               <% end %>
             <% end %>
+
             <%= yield %>
             </div>
             <div class="span1">&nbsp;</div>
+
+            <% if user_signed_in? %>
             <div class="span3">
               <div class="well sidebar-nav">
                 <h3>Sidebar</h3>
-                 <ul class="nav nav-list">
-                    <li class="nav-header">Sidebar</li>
-                    <li><%= link_to "Link1", "/path1"  %></li>
-                    <li><%= link_to "Link2", "/path2"  %></li>
-                    <li><%= link_to "Link3", "/path3"  %></li>
+                <ul class="nav nav-list">
+                  <li class="nav-header">Sidebar</li>
+                  <li><%= link_to "Link1", "/path1"  %></li>
+                  <li><%= link_to "Link2", "/path2"  %></li>
+                  <li><%= link_to "Link3", "/path3"  %></li>
                 </ul>
+              </div>
             </div>
-           </div>
+            <% end %>
+
           </div>
         </div>
-
+      <hr/>
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; Rooland 2012</p>
       </footer>
 
     </div> <!-- /container -->

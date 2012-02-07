@@ -1,0 +1,31 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <fieldset>
+
+      <div class="control-group<%= ' error' if resource.errors.messages[:email] %>">
+        <%= f.label :email %>
+        <% if resource.errors.messages[:email] %>
+        <span class="help-inline"><%= resource.errors.messages[:email].join('<br/>') %></span>
+        <% end %>
+        <%= f.email_field :email%>
+
+      </div>
+
+      <div class="control-group<%= ' error' if resource.errors.messages[:password]%>">
+        <%= f.label :password %>
+        <span class="help-inline"><%= resource.errors.messages[:password].join(', ') %></span>
+        <%= f.password_field :password %>
+
+      </div>
+
+      <div class="control-group<%= ' error' if resource.errors.messages[:password] %>">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+
+      <div><%= f.submit "Sign up" %></div>
+    </fieldset>
+<% end %>
+
+<%= render "links" %>
