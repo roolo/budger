@@ -4,7 +4,7 @@ class BudgetsController < ApplicationController
   # GET /budgets
   # GET /budgets.json
   def index
-    @budgets = Budget.all
+    @budgets = Budget.find_owned_by current_user
 
     respond_to do |format|
       format.html # index.html.erb
