@@ -22,3 +22,12 @@ end
 Then /^I should be logged in$/ do
   page.should have_content('Signed in successfully.')
 end
+
+Given /^Not logged in user$/ do
+  visit('/sign_out')
+end
+
+When /^user is logged in$/ do
+  step "I visit page with login form"
+  step "I submit filled in login form"
+end
