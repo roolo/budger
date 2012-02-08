@@ -1,0 +1,30 @@
+<h1>Items</h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.item.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @items.each do |item| -%>
+   <tr>
+    <td><%= item.id %></td>
+        <td><%= link_to item.name, item_path(item) %>
+    </td>
+        <td><%= item.created_at %></td>
+    <td>
+      <%= link_to "Show", item_path(item) %>
+      <%= link_to "Edit", edit_item_path(item) %>
+      <%= link_to "Destroy", item_path(item), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_item_path, :class => 'btn btn-primary' %>

@@ -1,4 +1,8 @@
 Budger::Application.routes.draw do
+  resources :budgets
+
+  resources :items
+
   devise_for :users do
     get 'sign_in', to: "devise/sessions#new"
     get 'sign_up', to: "devise/registrations#new"

@@ -1,0 +1,30 @@
+<h1>Budgets</h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.budget.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @budgets.each do |budget| -%>
+   <tr>
+    <td><%= budget.id %></td>
+        <td><%= link_to budget.name, budget_path(budget) %>
+    </td>
+        <td><%= budget.created_at %></td>
+    <td>
+      <%= link_to "Show", budget_path(budget) %>
+      <%= link_to "Edit", edit_budget_path(budget) %>
+      <%= link_to "Destroy", budget_path(budget), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_budget_path, :class => 'btn btn-primary' %>

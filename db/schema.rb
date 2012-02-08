@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207122119) do
+ActiveRecord::Schema.define(:version => 20120207174951) do
+
+  create_table "budgets", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "budgets", ["user_id"], :name => "index_budgets_on_user_id"
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.decimal  "money_amount"
+    t.integer  "priority"
+    t.integer  "item_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "budget_id"
+  end
+
+  add_index "items", ["budget_id"], :name => "index_items_on_budget_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
