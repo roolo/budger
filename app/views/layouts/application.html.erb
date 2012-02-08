@@ -38,9 +38,9 @@
           <div class="container nav-collapse">
             <% if user_signed_in? %>
                 <ul class="nav">
-                  <li><%= link_to "Link1", "/path1"  %></li>
-                  <li><%= link_to "Link2", "/path2"  %></li>
-                  <li><%= link_to "Link3", "/path3"  %></li>
+                  <% [:budgets].each do |page_name| %>
+                  <li class="<%= 'active' if request.fullpath == send(page_name.to_s+'_path') %>"><%= link_to page_name.capitalize, send(page_name.to_s+'_path') %></li>
+                  <% end %>
                 </ul>
             <% end %>
 
