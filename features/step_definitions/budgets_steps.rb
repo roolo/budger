@@ -43,3 +43,17 @@ When /^I should see table with all incomes$/ do
   end
 
 end
+Then /^I should see a detail of that budget$/ do
+  page.should have_content(@budget.name)
+end
+Then /^I should see edit form for budget$/ do
+  page.should have_css('form#edit_budget')
+end
+When /^I submit budget form with "([^"]*)"$/ do |new_name|
+  within("#edit_budget") do
+    fill_in 'Name', with: new_name
+  end
+end
+Then /^I should see budget form with "([^"]*)"$/ do |new_name|
+  page.should have_css("input[value=\"#{new_name}\"]")
+end
