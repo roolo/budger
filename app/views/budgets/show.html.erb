@@ -8,7 +8,7 @@
 
 <h2>Expenses</h2>
 <%= form_for Item.new do |f| -%>
-  <table class="table table-striped">
+  <table id="expenses" class="table table-striped">
     <thead>
     <tr>
       <th>NAME</th>
@@ -19,14 +19,25 @@
     <tbody>
     <%= render @budget.expenses %>
 
-    <tr>
-      <td><%= f.text_field :name %></td>
-      <td><%= f.text_field :money_amount %></td>
-      <td><%= f.text_field :priority, class: 'number_field' %></td>
-    </tr>
-
+    <%= render partial: 'items/table_form', locals: {f: f} %>
     </tbody>
   </table>
 <% end -%>
 
 <h2>Incomes</h2>
+<%= form_for Item.new do |f| -%>
+  <table id="incomes" class="table table-striped">
+    <thead>
+    <tr>
+      <th>NAME</th>
+      <th>MONEY AMOUNT</th>
+      <th>PRIORITY</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @budget.expenses %>
+
+    <%= render partial: 'items/table_form', locals: {f: f}  %>
+    </tbody>
+  </table>
+<% end -%>
