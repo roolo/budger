@@ -16,4 +16,5 @@ Feature: Budgets
       And the budget has 1 income
     When I visit page for budgets
      And I click on Show link
-    Then I should see table with expenses and incomes tables
+    Then I should see table with all expenses
+     And I should see table with all incomes

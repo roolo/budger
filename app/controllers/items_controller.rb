@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    @budget = Budget.find params[:budget_id]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,11 +45,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
 
-    #raise @item.errors.inspect
-
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to edit_budget_item_path(params[:budget_id], @item.id), notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }

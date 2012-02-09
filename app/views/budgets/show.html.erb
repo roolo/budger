@@ -7,7 +7,7 @@
 </div>
 
 <h2>Expenses</h2>
-<%= form_for Item.new do |f| -%>
+<%= form_for Item.new, url: budget_path(@budget) do |f| -%>
   <table id="expenses" class="table table-striped">
     <thead>
     <tr>
@@ -19,13 +19,15 @@
     <tbody>
     <%= render @budget.expenses %>
 
-    <%= render partial: 'items/table_form', locals: {f: f} %>
     </tbody>
+    <tfoot>
+        <%= render partial: 'items/table_form', locals: {f: f} %>
+    </tfoot>
   </table>
 <% end -%>
 
 <h2>Incomes</h2>
-<%= form_for Item.new do |f| -%>
+<%= form_for Item.new, url: budget_path(@budget) do |f| -%>
   <table id="incomes" class="table table-striped">
     <thead>
     <tr>
@@ -35,9 +37,11 @@
     </tr>
     </thead>
     <tbody>
-    <%= render @budget.expenses %>
+    <%= render @budget.incomes %>
 
-    <%= render partial: 'items/table_form', locals: {f: f}  %>
     </tbody>
+    <tfoot>
+    <%= render partial: 'items/table_form', locals: {f: f}  %>
+    </tfoot>
   </table>
 <% end -%>

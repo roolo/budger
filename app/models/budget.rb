@@ -5,6 +5,10 @@ class Budget < ActiveRecord::Base
 
   after_initialize :default_params
 
+  def to_s
+    name
+  end
+
   def self.find_owned_by user
     self.find_all_by_user_id user.id
   end
