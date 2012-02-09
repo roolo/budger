@@ -1,47 +1,47 @@
 <h1>Budget <%= @budget.name %></h1>
 
 <div class="form-actions">
-<%= link_to "Back", budgets_path, :class => 'btn'  %>
-<%= link_to "Edit", edit_budget_path(@budget), :class => 'btn' %>
-<%= link_to "Delete", budget_path(@budget), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
+  <%= link_to "Back", budgets_path, :class => 'btn'  %>
+  <%= link_to "Edit", edit_budget_path(@budget), :class => 'btn' %>
+  <%= link_to "Delete", budget_path(@budget), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
 </div>
 
 <h2>Expenses</h2>
 <%= form_for Item.new, url: budget_path(@budget) do |f| -%>
-  <table id="expenses" class="table table-striped">
-    <thead>
-    <tr>
-      <th>NAME</th>
-      <th>MONEY AMOUNT</th>
-      <th>PRIORITY</th>
-    </tr>
-    </thead>
-    <tbody>
-    <%= render @budget.expenses %>
+    <table id="expenses" class="table table-striped">
+      <thead>
+      <tr>
+        <th>NAME</th>
+        <th>MONEY AMOUNT</th>
+        <th>PRIORITY</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @budget.expenses %>
 
-    </tbody>
-    <tfoot>
-        <%= render partial: 'items/table_form', locals: {f: f} %>
-    </tfoot>
-  </table>
+      </tbody>
+      <tfoot>
+      <%= render partial: 'items/table_form', locals: {f: f} %>
+      </tfoot>
+    </table>
 <% end -%>
 
 <h2>Incomes</h2>
 <%= form_for Item.new, url: budget_path(@budget) do |f| -%>
-  <table id="incomes" class="table table-striped">
-    <thead>
-    <tr>
-      <th>NAME</th>
-      <th>MONEY AMOUNT</th>
-      <th>PRIORITY</th>
-    </tr>
-    </thead>
-    <tbody>
-    <%= render @budget.incomes %>
+    <table id="incomes" class="table table-striped">
+      <thead>
+      <tr>
+        <th>NAME</th>
+        <th>MONEY AMOUNT</th>
+        <th>PRIORITY</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @budget.incomes %>
 
-    </tbody>
-    <tfoot>
-    <%= render partial: 'items/table_form', locals: {f: f}  %>
-    </tfoot>
-  </table>
+      </tbody>
+      <tfoot>
+      <%= render partial: 'items/table_form', locals: {f: f}  %>
+      </tfoot>
+    </table>
 <% end -%>
