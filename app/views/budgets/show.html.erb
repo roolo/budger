@@ -7,41 +7,24 @@
 </div>
 
 <h2>Expenses</h2>
-<%= form_for Item.new, url: budget_path(@budget) do |f| -%>
-    <table id="expenses" class="table table-striped">
-      <thead>
-      <tr>
-        <th>NAME</th>
-        <th>MONEY AMOUNT</th>
-        <th>PRIORITY</th>
-      </tr>
-      </thead>
-      <tbody>
-      <%= render @budget.expenses %>
-
-      </tbody>
-      <tfoot>
-      <%= render partial: 'items/table_form', locals: {f: f} %>
-      </tfoot>
-    </table>
-<% end -%>
+<%= link_to "Add expense", budget_new_item_type_path(@budget, :expense), :class => 'btn'  %>
+<table id="expenses" class="table table-striped table-condensed">
+  <%= render 'items/item_header' %>
+  <tbody>
+  <%= render @budget.expenses %>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>
 
 <h2>Incomes</h2>
-<%= form_for Item.new, url: budget_path(@budget) do |f| -%>
-    <table id="incomes" class="table table-striped">
-      <thead>
-      <tr>
-        <th>NAME</th>
-        <th>MONEY AMOUNT</th>
-        <th>PRIORITY</th>
-      </tr>
-      </thead>
-      <tbody>
-      <%= render @budget.incomes %>
+<%= link_to "Add income", budget_new_item_type_path(@budget, :income), :class => 'btn'  %>
+<table id="incomes" class="table table-striped">
+  <%= render 'items/item_header' %>
+  <tbody>
+  <%= render @budget.incomes %>
 
-      </tbody>
-      <tfoot>
-      <%= render partial: 'items/table_form', locals: {f: f}  %>
-      </tfoot>
-    </table>
-<% end -%>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>

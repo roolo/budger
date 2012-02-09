@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :predefine_item_type
 
   # GET /items
   # GET /items.json
@@ -44,10 +45,11 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(params[:item])
+    @item.budget = Budget.find params[:budget_id]
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to edit_budget_item_path(params[:budget_id], @item.id), notice: 'Item was successfully created.' }
+        format.html { redirect_to after_save_redirection_path, notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
@@ -63,13 +65,18 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to after_save_redirection_path, notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def after_save_redirection_path
+    return budget_path(params[:budget_id]) if params.has_key? :save_and_back
+    edit_budget_item_path(params[:budget_id], @item.id)
   end
 
   # DELETE /items/1
@@ -79,8 +86,13 @@ class ItemsController < ApplicationController
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to items_url }
+      format.html { redirect_to budget_path(params[:budget_id]) }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def predefine_item_type
+    @predefined_item_type = params[:item_type]?Item.const_get('TYPE_'+params[:item_type].upcase):nil
   end
 end

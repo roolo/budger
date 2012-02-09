@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :item_type
-  #validates_presence_of :budget
+  validates_presence_of :budget
 
   belongs_to :budget
 

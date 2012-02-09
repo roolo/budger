@@ -1,5 +1,6 @@
 Budger::Application.routes.draw do
   resources :budgets do
+    get '/new/:item_type', to: 'items#new', as: :new_item_type
     resources :items
   end
 

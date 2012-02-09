@@ -1,8 +1,8 @@
 module ItemsHelper
-  def print_type type_number
-    case type_number
-      when Item::TYPE_EXPENSE then 'Expense'
-      when Item::TYPE_INCOME then 'Income'
+  def print_by_type type_code, options
+    case type_code
+      when Item::TYPE_EXPENSE then options[type_code-1]
+      when Item::TYPE_INCOME then options[type_code-1]
     end
   end
 end
