@@ -14,18 +14,18 @@
   <tbody>
   <% @items.each do |item| -%>
    <tr>
-        <td><%= link_to item.name, item_path(item) %>
+        <td><%= link_to item.name, budget_items_path(item.budget, item) %>
         <td><%= print_type(item.item_type) %>
     </td>
         <td><%= item.created_at %></td>
     <td>
-      <%= link_to "Show", item_path(item) %>
-      <%= link_to "Edit", edit_item_path(item) %>
-      <%= link_to "Destroy", item_path(item), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      <%= link_to "Show", budget_item_path(item.budget, item) %>
+      <%= link_to "Edit", edit_budget_item_path(item.budget, item) %>
+      <%= link_to "Destroy", budget_item_path(item.budget, item), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
     </td>
     </tr>
     <% end -%>
    </tbody>
 </table>
 
-<%= link_to "New", new_item_path, :class => 'btn btn-primary' %>
+<%= link_to "New", new_budget_item_path, :class => 'btn btn-primary' %>

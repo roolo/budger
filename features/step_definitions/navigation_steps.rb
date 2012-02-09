@@ -7,6 +7,9 @@ end
 When /^I visit page for (\w+)$/ do |page_name|
   visit(send(page_name+'_path'))
 end
+When /^I visit page for (\w+) of that (\w+)$/ do |page_name, entity|
+  visit("/budgets/#{instance_variable_get("@#{entity}").id}/items")
+end
 
 When /^I click on (\w+) link$/ do |link_text|
   click_link(link_text)

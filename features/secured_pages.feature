@@ -9,9 +9,3 @@ Feature: Pages secured by login
     Given Not logged in user
     When I visit page for budgets
     Then I should see a login page
-
-  Scenario: Visiting items page
-    Given Not logged in user
-    When I visit page for items
-    Then I should see a login page
-
