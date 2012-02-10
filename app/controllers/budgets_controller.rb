@@ -84,4 +84,25 @@ class BudgetsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def adopt
+    respond_to do |format|
+      item = Item.find params[:item_id]
+
+      if item.budget_id.to_i == params[:budget_id].to_i
+        format.json { head :not_modified }
+      end
+
+      budget = Budget.find params[:budget_id]
+
+
+      item.budget = budget
+
+      if item.save
+        format.json { head :ok }
+      else
+        format.json { head :bad_request }
+      end
+    end
+  end
 end

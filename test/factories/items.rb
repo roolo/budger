@@ -5,6 +5,13 @@ FactoryGirl.define do
     name "MyString"
     money_amount "9.99"
     priority 1
-    type 1
+  end
+
+  factory :expense, parent: :item do
+    item_type Item::TYPE_EXPENSE
+  end
+
+  factory :income, parent: :item do
+    item_type Item::TYPE_INCOME
   end
 end

@@ -35,9 +35,9 @@
     <div class="span3">
       <div class="well sidebar-nav">
         <h3>Other budgets</h3>
-        <ul class="nav nav-list">
+        <ul id="other-budgets-list" class="nav nav-list">
           <% @other_budgets.each do |budget| %>
-              <li><%= link_to budget, budget_path(budget)  %></li>
+              <li id="droppable-other-budget-<%= budget.id %>" class="drop-zone"><%= link_to budget, budget_path(budget)  %></li>
           <% end %>
 
         </ul>

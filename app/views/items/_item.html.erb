@@ -3,7 +3,9 @@
     <span class="label label-<%= print_by_type(item.item_type, ['important', 'success']) %>">
       <%= print_by_type(item.item_type, ['Expense', 'Income']) %>
     </span>
-    <%= item.name %>
+    <span id="draggable-item-<%= item.id %>" class="draggable">
+      &nbsp;<i class="icon-move draggable-handle" ></i>&nbsp;<%= item.name %>
+    </span>
   </td>
   <td><%= item.money_amount %></td>
   <td><%= item.priority %></td>

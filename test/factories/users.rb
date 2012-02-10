@@ -3,6 +3,13 @@
 FactoryGirl.define do
   factory :testing_user, class: User do
     email "test@test.com"
-    password "pasword"
+    password "password"
   end
+
+  factory :user do
+    email "test@test.com"
+    password "password"
+  end
+
+
 end
