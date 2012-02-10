@@ -84,6 +84,8 @@ GEM
     guard-cucumber (0.7.5)
       cucumber (>= 0.10)
       guard (>= 0.8.3)
+    guard-rspec (0.6.0)
+      guard (>= 0.10.0)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.1)
@@ -195,6 +197,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   guard-cucumber
+  guard-rspec
   jquery-rails
   launchy
   rails (= 3.2.1)
