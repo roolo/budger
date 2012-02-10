@@ -16,6 +16,7 @@ class BudgetsController < ApplicationController
   # GET /budgets/1.json
   def show
     @budget = Budget.find(params[:id])
+    @other_budgets = current_user.budgets conditions: ["id != ?", @budget.id]
 
     respond_to do |format|
       format.html # show.html.erb
