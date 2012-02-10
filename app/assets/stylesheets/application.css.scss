@@ -10,8 +10,15 @@
  *
  *= require_self
  *= require twitter/bootstrap
+ *= require items
+ *= require budgets
 */
 
 #article p {
     text-align: justify;
+}
+
+li {
+    &.droppable-active {background-color: royalblue; }
+    &.droppable-hover { background:   yellow; }
 }
