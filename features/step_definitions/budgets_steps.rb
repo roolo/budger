@@ -64,7 +64,7 @@ Given /^I am in show view of budget$/ do
   visit budget_path(@budget)
 end
 When /^I drag the item on another budget$/ do
-  item = page.find_by_id('draggable-item-'+@expense.id.to_s)
+  item = page.find_by_id('draggable-item-'+@expense.id.to_s+'-handle')
   another_budget = page.find_by_id('droppable-other-budget-'+@another_budget.id.to_s)
   item.drag_to(another_budget)
 end

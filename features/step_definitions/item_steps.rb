@@ -10,5 +10,5 @@ end
 Then /^My expense should be in another budget$/ do
   original_budget_id = @expense.budget_id
   @expense.reload
-  original_budget_id.to_i.should != @expense.budget_id.to_i
+  page.should_not have_css('tbody tr')
 end

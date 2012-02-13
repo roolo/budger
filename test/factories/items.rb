@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :item do
-    name "MyString"
+    name "Item"
     money_amount "9.99"
     priority 1
     budget

@@ -17,6 +17,7 @@ $(document).ready ->
 
       jQuery.ajax
         url: '/budgets/'+adopter_id+'/adopt/'+orphan_id
+        contentType: 'application/json'
         type: 'POST'
         success: (response)->
         statusCode:
