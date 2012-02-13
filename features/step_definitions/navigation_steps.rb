@@ -14,3 +14,6 @@ end
 When /^I click on (\w+) link$/ do |link_text|
   click_link(link_text)
 end
+Given /^I am in budget's show$/ do
+  visit budget_path(@budget)
+end

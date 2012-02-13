@@ -5,6 +5,7 @@ FactoryGirl.define do
     name "MyString"
     money_amount "9.99"
     priority 1
+    budget
   end
 
   factory :expense, parent: :item do
