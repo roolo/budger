@@ -8,6 +8,10 @@ Spork.prefork do
   require 'capybara/cucumber'
   require 'capybara/rspec'
 
+  Capybara.server_port = '8000'
+  Capybara.app_host = 'http://localhost:8000'
+  Capybara.javascript_driver = :webkit
+
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd
   # prefer to use XPath just remove this line and adjust any selectors in your
