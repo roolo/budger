@@ -57,7 +57,7 @@ end
 Then /^I should see budget form with "([^"]*)"$/ do |new_name|
   page.should have_css("input[value=\"#{new_name}\"]")
 end
-Given /^the user alson own another budget$/ do
+Given /^the user also own another budget$/ do
   @another_budget = Factory.create :another_budget, user: @user
 end
 Given /^I am in show view of budget$/ do
