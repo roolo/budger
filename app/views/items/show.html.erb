@@ -11,7 +11,7 @@
 <label class="label"><%= t("activerecord.attributes.item.item_type", :default => t("activerecord.labels.item_type", :default => "Item type")) %>:</label>
 <p><%= print_by_type @item.item_type, ['Expense', 'Income'] %></p>
 
-<div class="form-actions">
+<div class="form-actions btn-group">
   <%= link_to "Back", budget_items_path(@item.budget), :class => 'btn'  %>
   <%= link_to "Edit", edit_budget_item_path(@item.budget, @item), :class => 'btn' %>
   <%= link_to "Delete", budget_item_path(@item.budget, @item), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>

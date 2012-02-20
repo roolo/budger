@@ -1,6 +1,6 @@
 <h1>Budget <%= @budget.name %></h1>
 
-<div class="form-actions">
+<div class="form-actions btn-group">
   <%= link_to "Back", budgets_path, :class => 'btn'  %>
   <%= link_to "Edit", edit_budget_path(@budget), :class => 'btn' %>
   <%= link_to "Delete", budget_path(@budget), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>

@@ -26,8 +26,8 @@
     <%= f.select :item_type, [['Expense', Item::TYPE_EXPENSE], ['Income', Item::TYPE_INCOME]], selected: @predefined_item_type %>
   </div>
 </div>
-<div class="form-actions">
-  <button class="btn primary" id="save" name="save" type="submit">Save</button>,
-  <button class="btn" name="save_and_back" type="submit">Save and back to budget</button> or just go
-  <%= link_to "Back to budget", budget_path(params[:budget_id]) %> without any changes
+<div class="form-actions btn-group">
+  <button class="btn btn-primary" id="save" name="save" type="submit">Save</button>
+  <button class="btn" name="save_and_back" type="submit">Save and back to budget</button>
+  <%= link_to "Back to budget", budget_path(params[:budget_id]), class: 'btn' %>
 </div>
