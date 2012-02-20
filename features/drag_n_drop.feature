@@ -1,6 +1,6 @@
+@javascript
 Feature: Drag 'n' Drop
   
-  @javascript 
   Scenario: Moving expense into another budget
     Given existing user
       And user is logged in

@@ -55,10 +55,25 @@ Spork.prefork do
   #   end
   #
 
+  Before('@javascript') do
+     DatabaseCleaner.clean
+  end
+
   # Possible values are :truncation and :transaction
   # The :transaction strategy is faster, but might give you threading problems.
   # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
   Cucumber::Rails::Database.javascript_strategy = :truncation
+
+
+  class ActiveRecord::Base
+    mattr_accessor :shared_connection
+    @@shared_connection = nil
+
+    def self.connection
+      @@shared_connection || retrieve_connection
+    end
+  end
+
 
 
 

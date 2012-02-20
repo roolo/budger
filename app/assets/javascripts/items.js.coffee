@@ -23,9 +23,22 @@ $(document).ready ->
         statusCode:
           200: ->
             ui.draggable.parents('tr').remove()
+            bootstrap_message('Successfuly updated', 'success')
 
           304: ->
-            ui.draggable.parents('tr').remove()
+            bootstrap_message('Nothing to change (Try reload this page)', 'warning')
+
+          404: ->
+            bootstrap_message('Entity not found (Try reload this page)', 'error')
 
     activeClass: 'droppable-active'
     hoverClass: 'droppable-hover'
+    accept: '.draggable'
+
+
+window.bootstrap_message = (message,type='info') ->
+  $('#sidebar .alert').remove()
+  $('#sidebar').append '<div class="alert alert-'+type+'">
+        <a class="close" data-dismiss="alert">x</a>
+        <strong class="capital"><span>'+type+'!</span></strong> '+message+'
+      </div>'

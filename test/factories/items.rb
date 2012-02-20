@@ -12,6 +12,11 @@ FactoryGirl.define do
     item_type Item::TYPE_EXPENSE
   end
 
+  factory :another_expense, parent: :expense do
+    name "Another expense"
+    user
+  end
+
   factory :income, parent: :item do
     item_type Item::TYPE_INCOME
   end
