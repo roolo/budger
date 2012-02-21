@@ -12,4 +12,4 @@ For testing purpouses serves [Cucumber](http://cukes.info/) in this application.
 
 ### Screenshots
 
-![Budget detail](https://img.skitch.com/20120220-e8k9hbhpk9u6dbi2yrcuhghjge.png)
+![Budget detail](https://img.skitch.com/20120221-bkt72qme5nqyg32cs81b5ewi9i.png)
