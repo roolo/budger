@@ -5,7 +5,7 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 
 
 # Gems used only for assets and not required
@@ -18,25 +18,25 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails', '~> 2.1.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.1.2'
 
 group :test do
-  gem 'rspec-rails'
-  gem 'cucumber-rails'
-  gem 'capybara-webkit'
-  gem 'launchy'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'guard-cucumber'
-  gem 'guard-rspec'
-  gem 'guard-spork'
-  gem 'spork'
+  gem 'rspec-rails', '~> 2.11.0'
+  gem 'cucumber-rails', '~> 1.3.0'
+  gem 'capybara-webkit', '~> 0.12.1'
+  gem 'launchy', '~> 2.1.2'
+  gem 'database_cleaner', '~> 0.8.0'
+  gem 'factory_girl_rails', '~> 4.1.0'
+  gem 'guard-cucumber', '~> 1.2.0'
+  gem 'guard-rspec', '~> 1.2.1'
+  gem 'guard-spork', '~> 1.2.0'
+  gem 'spork', '~> 0.9.2'
 end
 
-gem 'devise'
+gem 'devise', '~> 2.1.2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
