@@ -28,31 +28,24 @@
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-          <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="i-bar"></span>
-            <span class="i-bar"></span>
-            <span class="i-bar"></span>
-          </a>
-          <a class="brand" href="<%= root_path %>">Budger</a>
-          <div class="container nav-collapse">
-            <% if user_signed_in? %>
-                <ul class="nav">
-                  <% [:budgets].each do |page_name| %>
-                  <li class="<%= 'active' if request.fullpath == send(page_name.to_s+'_path') %>"><%= link_to page_name.capitalize, send(page_name.to_s+'_path') %></li>
-                  <% end %>
-                </ul>
-            <% end %>
-
-            <ul class="nav pull-right">
-              <% if user_signed_in? %>
-                <%= render :partial => 'application/nav_user' %>
-              <% else %>
-                <%= render :partial => 'application/nav_anonymous' %>
+        <a class="brand" href="<%= root_path %>">Budger</a>
+          <% if user_signed_in? %>
+            <ul class="nav">
+              <% [:budgets].each do |page_name| %>
+              <li class="<%= 'active' if request.fullpath == send(page_name.to_s+'_path') %>">
+                <%= link_to page_name.capitalize, send(page_name.to_s+'_path') %>
+              </li>
               <% end %>
             </ul>
-          </div><!--/.nav-collapse -->
-        </div>
+          <% end %>
+
+          <ul class="nav pull-right">
+            <% if user_signed_in? %>
+              <%= render :partial => 'application/nav_user' %>
+            <% else %>
+              <%= render :partial => 'application/nav_anonymous' %>
+            <% end %>
+          </ul>
       </div>
     </div>
 
