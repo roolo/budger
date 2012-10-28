@@ -10,6 +10,7 @@ Budger::Application.routes.draw do
     get 'sign_in', to: "devise/sessions#new"
     get 'sign_up', to: "devise/registrations#new"
     get 'sign_out', to: "devise/sessions#destroy"
+    get 'account', to: "devise/registration#edit"
   end
 
   # The priority is based upon order of creation:
